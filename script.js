@@ -44,6 +44,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const loadingStatus = loadingSection.querySelector('.loading-status');
 
         loadingSection.style.display = 'block';
+        loadingSection.classList.add('entrance');
 
         // Simulate Loading Progress
         let progress = 0;
@@ -67,8 +68,15 @@ document.addEventListener('DOMContentLoaded', () => {
                 setTimeout(() => {
                     // Transition: Loading -> Quiz
                     loadingSection.style.display = 'none';
+                    loadingSection.classList.remove('entrance');
                     quizSection.style.display = 'block';
+                    quizSection.classList.add('entrance');
                     loadQuestion();
+
+                    // Remove entrance after animation to prevent flickering issues later
+                    setTimeout(() => {
+                        quizSection.classList.remove('entrance');
+                    }, 1000);
                 }, 500);
             }
         }, 20);
@@ -206,15 +214,10 @@ document.addEventListener('DOMContentLoaded', () => {
             feedbackHeader.textContent = "Jawaban Kurang Tepat";
             feedbackBar.classList.add('incorrect');
 
-            // Haptic Feedback (Vibration)
-            if (navigator.vibrate) {
-                navigator.vibrate([100, 50, 100]); // Short double pulse
-            }
-
             // Enhanced Shake Animation
             // Remove previous classes that might interfere
             quizSection.classList.remove('shake', 'entrance', 'slide-in');
-            void quizSection.offsetWidth; // Force reflow to restart animation
+            void quizSection.offsetWidth; // Force reflow
             quizSection.classList.add('shake');
 
             // Cleanup shake class after animation finishes
@@ -280,6 +283,11 @@ document.addEventListener('DOMContentLoaded', () => {
         feedbackBar.classList.remove('show');
         resultSection.style.display = 'block';
         resultSection.classList.add('entrance');
+
+        // Cleanup entrance class
+        setTimeout(() => {
+            resultSection.classList.remove('entrance');
+        }, 1000);
 
         const percentage = Math.round((score / questions.length) * 100);
 
