@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Museum Quiz - Jelajah Sejarah</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600;700;800&family=Patrick+Hand&family=Gaegu:wght@400;700&family=Outfit:wght@300;400;500;600;700;800&family=Fredoka:wght@300..700&family=Quicksand:wght@300..700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body>
+
+    <div class="bg-art"></div>
+
+    <div class="container">
+        <!-- Landing Section -->
+        <section id="landing-section" class="window-frame entrance">
+            <div class="window-header">
+                <div class="window-controls">
+                    <span class="dot dot-red"></span>
+                    <span class="dot dot-gold"></span>
+                    <span class="dot dot-green"></span>
+                </div>
+                <div class="window-title">Edu-Quiz v1.0</div>
+            </div>
+            <div class="window-body text-center">
+                <div class="sparkle s-left"><i data-lucide="sparkles"></i></div>
+                <div class="sparkle s-right"><i data-lucide="sparkles"></i></div>
+                <h1 class="animate">
+                    <span class="bouncy-char" style="--i:0">J</span><span class="bouncy-char"
+                        style="--i:1">e</span><span class="bouncy-char" style="--i:2">l</span><span class="bouncy-char"
+                        style="--i:3">a</span><span class="bouncy-char" style="--i:4">j</span><span class="bouncy-char"
+                        style="--i:5">a</span><span class="bouncy-char" style="--i:6">h</span><br>
+                    <span class="bouncy-char" style="--i:7">S</span><span class="bouncy-char"
+                        style="--i:8">e</span><span class="bouncy-char" style="--i:9">j</span><span class="bouncy-char"
+                        style="--i:10">a</span><span class="bouncy-char" style="--i:11">r</span><span
+                        class="bouncy-char" style="--i:12">a</span><span class="bouncy-char" style="--i:13">h</span>
+                </h1>
+                <p>Seberapa kenal kamu sama koleksi Museum Sulawesi Tengah?</p>
+                <div class="btn-wrap">
+                    <button id="start-btn" class="btn-pill">START NOW</button>
+                    <a href="https://museumsulawesitengah.com" target="_blank" class="btn-app-store">
+                        <img src="images/logomuseum.png" alt="Logo Museum">
+                        <div class="btn-text">
+                            <span class="btn-label">Kunjungi</span>
+                            <span class="btn-title">Website Resmi</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Loading Section -->
+        <section id="loading-section" class="window-frame" style="display: none;">
+            <div class="window-header">
+                <div class="window-controls">
+                    <span class="dot dot-red"></span>
+                    <span class="dot dot-gold"></span>
+                    <span class="dot dot-green"></span>
+                </div>
+                <div class="window-title">System Update...</div>
+            </div>
+            <div class="window-body text-center">
+                <div class="loading-text">NOW LOADING</div>
+                <div class="loading-progress-container">
+                    <div id="loading-progress-bar" class="loading-progress-bar"></div>
+                </div>
+                <div class="loading-status">Menghubungkan ke Arsip Sejarah...</div>
+            </div>
+        </section>
+
+        <!-- Quiz Section -->
+        <section id="quiz-section" class="window-frame">
+            <div class="window-header header-red">
+                <div class="window-controls">
+                    <span class="dot dot-red"></span>
+                    <span class="dot dot-gold"></span>
+                    <span class="dot dot-green"></span>
+                </div>
+                <div class="window-title" id="quiz-window-title">Arsip Sejarah #1</div>
+            </div>
+            <div class="window-body">
+                <div class="progress-bar-wrap">
+                    <div class="progress-container">
+                        <div id="progress-bar" class="progress-bar"></div>
+                    </div>
+                    <div id="question-number" class="question-count-text">Pertanyaan 1/10</div>
+                </div>
+
+                <div id="quiz-layout-grid" class="quiz-layout-grid">
+                    <div class="quiz-image-side">
+                        <div id="question-image-container" class="image-container">
+                            <img id="question-image" src="" alt="Museum Collection">
+                        </div>
+                    </div>
+                    <div class="quiz-content-side">
+                        <div id="question-text" class="question-text">Memuat pertanyaan...</div>
+                        <div id="options-grid" class="options-grid">
+                            <!-- Options injected here -->
+                        </div>
+                        <button id="check-btn" class="btn-pill" style="display: none;" disabled>Periksa</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Result Section -->
+        <section id="result-section" class="window-frame">
+            <div class="window-header header-gold">
+                <div class="window-controls">
+                    <span class="dot dot-red"></span>
+                    <span class="dot dot-gold"></span>
+                    <span class="dot dot-green"></span>
+                </div>
+                <div class="window-title">Laporan Ekspedisi</div>
+            </div>
+            <div class="window-body text-center">
+                <div class="achievement-card">
+                    <div class="floating-icon s-left" style="opacity: 0.3; color: var(--accent);"><i
+                            data-lucide="trophy"></i></div>
+                    <div class="floating-icon s-right" style="opacity: 0.3; color: var(--accent);"><i
+                            data-lucide="star"></i></div>
+                    <div class="score-badge entrance">
+                        <span id="final-score">0</span>
+                    </div>
+                    <h2 id="result-title" class="title-animated">KUIS SELESAI</h2>
+                    <p id="result-description" style="margin-bottom: 1rem;">Terima kasih telah berpartisipasi dalam
+                        penjelajahan sejarah ini.</p>
+
+                    <div class="stats-bubbles">
+                        <div class="bubble bubble-correct">
+                            <span style="font-size: 0.8rem; font-weight: 800; opacity: 0.7;">BENAR</span>
+                            <span id="correct-count" style="font-size: 1.5rem; font-weight: 900;">0</span>
+                        </div>
+                        <div class="bubble bubble-wrong" style="animation-delay: 0.1s;">
+                            <span style="font-size: 0.8rem; font-weight: 800; opacity: 0.7;">SALAH</span>
+                            <span id="wrong-count" style="font-size: 1.5rem; font-weight: 900;">0</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="btn-wrap">
+                    <button id="restart-btn" class="btn-pill">MULAI LAGI</button>
+                </div>
+            </div>
+        </section>
+    </div>
+    <!-- Feedback Bar -->
+    <div id="feedback-bar" class="feedback-bar window-frame">
+        <div class="window-header" id="feedback-window-header">
+            <div class="window-controls">
+                <span class="dot dot-red"></span>
+                <span class="dot dot-gold"></span>
+                <span class="dot dot-green"></span>
+            </div>
+            <div class="window-title" id="feedback-header">Status Jawaban</div>
+        </div>
+        <div class="window-body text-center">
+            <div id="feedback-message" class="feedback-message">Jawaban Anda benar.</div>
+            <div class="btn-wrap" style="margin-top: 1.5rem;">
+                <button id="continue-btn" class="btn-pill">Lanjutkan</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="questions.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
